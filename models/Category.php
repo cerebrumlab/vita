@@ -46,6 +46,8 @@ class Category extends ActiveRecord
     {
         return [
             [['title', 'slug', 'html_title'], 'required'],
+            [['parent_id'], 'integer'],
+            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['parent_id' => 'id']],
             [['is_active'], 'integer'],
             [['timestamp'], 'safe'],
             [['title', 'slug', 'html_title'], 'string', 'max' => 100]
@@ -59,6 +61,7 @@ class Category extends ActiveRecord
     {
         return [
             'id' => 'ID',
+            'parent_id'=> "Родительская категория",
             'title' => 'Категория',
             'html_title' => 'Заголовок (HTML)',
             'slug' => 'Короткое название',
@@ -80,6 +83,7 @@ class Category extends ActiveRecord
         $result = [];
         foreach ($categories as $value) {
             $result[] = ['url' => ['category/view', 'id' => $value->id], 'label' => $value->title];
+
         }
         return $result;
     }
@@ -94,6 +98,13 @@ class Category extends ActiveRecord
             'sort'=>array(
                 'defaultOrder'=>['id' => SORT_DESC],)
         ]);
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParent()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'parent_id']);
     }
 
 }
