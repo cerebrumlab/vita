@@ -65,7 +65,7 @@ class ArticleController extends Controller
                 $model->preview_picture = 'preview/' . $model->preview_input->baseName . '.' . $model->preview_input->extension;
             }
             if ($model->save()) {
-                Yii::warning("Article changed. Attributes = " . print_r($model->attributes));
+                Yii::warning("Article changed. Attributes = " . print_r($model->attributes,true));
                 return $this->redirect(['index']);
             }
         }
@@ -88,7 +88,7 @@ class ArticleController extends Controller
                 $model->preview_picture = 'preview/' . $model->preview_input->baseName . '.' . $model->preview_input->extension;
             }
             if ($model->save()) {
-                Yii::warning("Article changed. Attributes = " . print_r($model->attributes));
+                Yii::warning("Article changed. Attributes = " . print_r($model->attributes,true));
                 return $this->redirect(['index']);
             }
         }
