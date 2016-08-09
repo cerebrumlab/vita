@@ -1,0 +1,159 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    /*height: 60px;*/
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+.header {
+    /*height: 60px;*/
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+/* Уменьшенный Баннер */
+.banner-preview {
+    height: 150px;
+}
+.article-preview-img {
+    height: 100px;
+}
+.header-banner-img {
+    max-height: 70px;
+}
+.sidebar-banner-img {
+    max-width: 100%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.sidebar-banner {
+    margin-top: 20px;
+}
+.last {
+    color: #B7B7B7;
+    width: 100%;
+    text-align: center;
+}
+.preview-img {
+    width: 100%;
+}
+
+.header-link {
+    font-size: 30px;
+    text-decoration: none;
+}
+.navbar-fixed-top + .content-container {
+    margin-top: 70px;
+}
+.content-container {
+    margin: 0 130px;
+}
+
+
+
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px; /* negative of the offset - height of link element */
+    right: 10px; /* padding from the left side of the window */
+}
+#top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 48px; /* height of link element */
+    right: 10px; /* padding from the left side of the window */
+}
+
+.last-added {
+    margin-bottom: 5px;
+}
+.preview_img{
+    width:200px;
+    height:150px;
+}
+.preview_img img{
+    width:100%;
+    height:100%;}
