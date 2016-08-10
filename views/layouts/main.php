@@ -12,6 +12,7 @@ use yii\bootstrap\NavBar;
 use app\assets\AppAsset;
 use yii\widgets\Breadcrumbs;
 
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -44,6 +45,7 @@ AppAsset::register($this);
 
 <div class="wrap">
     <div class="container">
+
         <?php
         NavBar::begin(['options' => ['class' => 'navbar-default navbar']]);
         echo Nav::widget([

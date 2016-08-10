@@ -77,15 +77,28 @@ class Category extends ActiveRecord
         ];
     }
 
-    public static function getActiveCategories()
+    public static function getActiveCategories($id = null)
     {
-        $categories = Category::find()->where(['is_active' => 1])->all();
-        $result = [];
-        foreach ($categories as $value) {
-            $result[] = ['url' => ['category/view', 'id' => $value->id], 'label' => $value->title];
-
+    $categories = Category::find()->where(['is_active' => 1, 'parent_id' => $id])->all();
+    $result = [];
+    foreach ($categories as $value) {
+        $menu = [
+            'url' => ['category/view', 'id' => $value->id],
+            'label' => $value->title
+        ];
+        if($value->children) {
+            $menu['items'] = self::getActiveCategories($value->id);
         }
-        return $result;
+        $result[] = $menu;
+    }
+    return $result;
+    }
+ /**
+ * @return \yii\db\ActiveQuery
+ */
+    public function getChildren()
+    {
+        return $this->hasMany(Category::className(), ['parent_id' => 'id']);
     }
 
     /**
@@ -99,12 +112,7 @@ class Category extends ActiveRecord
                 'defaultOrder'=>['id' => SORT_DESC],)
         ]);
     }
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getParent()
-    {
-        return $this->hasOne(Category::className(), ['id' => 'parent_id']);
-    }
+
+
 
 }
