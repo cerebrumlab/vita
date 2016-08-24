@@ -13,8 +13,9 @@ class CategoryUrlRule extends UrlRule
 
         if ($route === 'category/view' && isset($params['id'])) {
             $model = $this->findModel($params['id']);
-            return $model->slug;
+            return $model->slug . (isset($params['page']) ? "?page=" . $params['page'] : "");
         }
+        
         return false;
     }
 
@@ -35,7 +36,7 @@ class CategoryUrlRule extends UrlRule
 
     /**
      * @param string $id
-     * @return Category
+     * @return Category | bool
      * @throws NotFoundHttpException
      */
     protected function findModel($id)

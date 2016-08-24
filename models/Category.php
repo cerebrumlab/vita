@@ -46,9 +46,7 @@ class Category extends ActiveRecord
     {
         return [
             [['title', 'slug', 'html_title'], 'required'],
-            [['parent_id'], 'integer'],
-            [['parent_id'], 'exist', 'skipOnError' => true, 'targetClass' => Category::className(), 'targetAttribute' => ['parent_id' => 'id']],
-            [['is_active'], 'integer'],
+            [['is_active', 'parent_id'], 'integer'],
             [['timestamp'], 'safe'],
             [['title', 'slug', 'html_title'], 'string', 'max' => 100]
         ];

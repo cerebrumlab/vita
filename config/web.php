@@ -55,6 +55,8 @@ $config = [
             'enablePrettyUrl' => true,
             'rules' => [
                 'sitemap.xml' => 'site/map',
+                ['class' => 'app\components\ArticleUrlRule', 'pattern' => 'article/view/<page:\d+>', 'route' => 'article/view'],
+                ['class' => 'app\components\CategoryUrlRule', 'pattern' => 'category/view/<page:\d+>', 'route' => 'category/view'],
                 ['class' => 'app\components\ArticleUrlRule', 'pattern' => 'article/view', 'route' => 'article/view'],
                 ['class' => 'app\components\CategoryUrlRule', 'pattern' => 'category/view', 'route' => 'category/view'],
                 'about' => 'site/about',
