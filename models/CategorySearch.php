@@ -45,10 +45,7 @@ class CategorySearch extends Category
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
-            'pagination' => [
-                'forcePageParam' => false,
-                'pageSize' => 2,
-            ],
+            'pagination' => ['pageSize' => 400],
         ]);
 
         $this->load($params);
